@@ -15,7 +15,7 @@ const Login = () => {
       </h2>
       <form onSubmit={handleEmailPasswordLogin}>
         <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email </Form.Label>
+          <Form.Label className="text-primary">Email </Form.Label>
           <Form.Control
             type="email"
             placeholder="Enter email"
@@ -25,7 +25,7 @@ const Login = () => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="text-primary">Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter Password"
@@ -45,7 +45,7 @@ const Login = () => {
         <p className="text-danger">{errorMessage}</p>
         <div className="text-center my-3">
           <Button className="w-50 fw-semibold fs-4" variant="primary" type="submit">
-            Submit
+            Login
           </Button>
         </div>
       </form>
