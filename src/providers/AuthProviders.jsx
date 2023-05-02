@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -47,13 +48,14 @@ const AuthProviders = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
     // onAuthStateChanged e firebase signed in user ta kei pabe, and state e set korbe
   };
+  
 
   // Observe Auth State Change
  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       //user Jevabei log in/sign in koruk, ekhane currentUser hisebe oi user k pawa jay
-      console.log("Auth state change", currentUser);
+    //   console.log("Auth state change", currentUser);
       setUser(currentUser);
       setLoading(false);
     });
