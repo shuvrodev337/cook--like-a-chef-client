@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
 const Register = () => {
+const { createUser} = useContext(AuthContext)
+
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+
     const handleEmailPasswordRegister = event=>{
+      event.preventDefault()
+      const name = event.target.name.value
+      const email = event.target.email.value
+      const password = event.target.password.value
+      console.log(name,email,password);
+      createUser(email, password)
+        .then(result =>{
+          const registeredUser = result.user
+          console.log(registeredUser);
+          event.target.reset()
+          setSuccessMessage("User Registration successfull!")
+          setErrorMessage("")
+        })
+        .catch(error=>{
+          setSuccessMessage("")
+          setErrorMessage(error.message);
+        })
+
+
 
     }
     return (
@@ -22,7 +45,7 @@ const Register = () => {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="name">
+        <Form.Group className="mb-3" controlId="photo-URL">
           <Form.Label className="text-primary">Phot URL: </Form.Label>
           <Form.Control
             type="text"
