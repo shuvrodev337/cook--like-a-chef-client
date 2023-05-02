@@ -1,12 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const {logIn} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
 
-  const handleEmailPasswordLogin = (event) => {};
+  const handleEmailPasswordLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    setErrorMessage("")
+    logIn(email,password)
+    .then(result=>{
+      const loggedUser = result.user
+      console.log(loggedUser);
+      form.reset();
+      navigate(from);
+    })
+    .catch((error) => {
+      setErrorMessage(error.message);
+    });
+  };
   const handleResetPassword = (event) => {};
   return (
     <div className="w-50 mx-auto mt-5 bg-light p-4 rounded shadow">
@@ -67,7 +89,7 @@ const Login = () => {
         <p className="text-success">
           New to CookLike-a-Chef ?{" "}
           <Link className="text-decoration-none" to={"/register"}>
-            <small >Sign up/Register</small>
+            <small >Sign up or Register</small>
           </Link>
         </p>
         

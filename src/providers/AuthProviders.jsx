@@ -15,9 +15,11 @@ import app from "../firebase/firebase.config";
 //  Create auth and provider for google frtom Firebase
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-
 // Create Context
 export const AuthContext = createContext(null);
+
+
+
 
 const AuthProviders = ({ children }) => {
 

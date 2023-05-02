@@ -38,7 +38,7 @@ const Register = () => {
 
       // Update User Info
       const updateUserData = (name, user, photo) => {
-        return updateProfile(user, {
+         updateProfile(user, {
           displayName: name,
           photoURL: photo,
         })
@@ -46,7 +46,7 @@ const Register = () => {
           console.log("User Name And photo url Updated");
         })
         .catch((error) => {
-          setErrorMessage("Name Update Error " + error.message);
+          setErrorMessage("Name and photo URL Update Error " + error.message);
         });
       };
 
@@ -65,7 +65,7 @@ const Register = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="photo-URL">
-          <Form.Label className="text-primary">Phot URL: </Form.Label>
+          <Form.Label className="text-primary">Photo URL </Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter Photo URL"
