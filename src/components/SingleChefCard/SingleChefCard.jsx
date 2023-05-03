@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const SingleChefCard = ({chef}) => {
-    const {name,picture, experience,likes} = chef
-    console.log(picture);
+    const {id,name,picture, experience,likes} = chef
+    console.log(id);
+    // const id = 2
     return (
         
           <Col>
@@ -20,7 +22,7 @@ const SingleChefCard = ({chef}) => {
                 <Card.Text className='fw-semibold'>
                   {likes} Likes.
                 </Card.Text>
-                <Button variant="danger">See Recipes</Button>{' '}
+                <Link to={`/chef/${id}`}><Button variant="danger">See Recipes</Button>{' '}</Link>
               </Card.Body>
             </Card>
           </Col>
