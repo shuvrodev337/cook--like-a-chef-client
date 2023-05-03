@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -12,9 +13,10 @@ import {
 import app from "../firebase/firebase.config";
 
 
-//  Create auth and provider for google frtom Firebase
+//  Create auth and provider for google and github from Firebase
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider()
 // Create Context
 export const AuthContext = createContext(null);
 
@@ -47,9 +49,17 @@ const AuthProviders = ({ children }) => {
 
   // Login with Google Account
   const googleSignIn = () => {
+    setLoading(true)
     return signInWithPopup(auth, googleProvider);
     // onAuthStateChanged e firebase signed in user ta kei pabe, and state e set korbe
   };
+
+  // Login with Google
+
+  const githubSighnIn = ()=>{
+    setLoading(true)
+    return signInWithPopup(auth, githubProvider)
+  }
   
 
   // Observe Auth State Change
@@ -72,6 +82,7 @@ const AuthProviders = ({ children }) => {
     createUser,
     logIn,
     googleSignIn,
+    githubSighnIn,
     logOut,
     loading,
   };
