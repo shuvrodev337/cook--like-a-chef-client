@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
 const Register = () => {
+  const navigate = useNavigate()
   const { createUser } = useContext(AuthContext);
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -28,6 +29,7 @@ const Register = () => {
         setErrorMessage("");
         updateUserData(name, registeredUser, photo)
         console.log(registeredUser);
+        navigate("/")
       })
       .catch((error) => {
         setSuccessMessage("");

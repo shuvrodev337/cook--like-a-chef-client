@@ -5,7 +5,7 @@ const Recipes = () => {
     const selectedChef = useLoaderData()
     return (
         <div>
-            this is {selectedChef.name}
+           <h2> this is {selectedChef.name}</h2>
         </div>
     );
 };
