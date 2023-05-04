@@ -20,7 +20,6 @@ const Register = () => {
       setErrorMessage("password is too short, atleast 6 charecters");
       return;
     }
-    console.log(name, email, password);
     createUser(email, password)
       .then((result) => {
         const registeredUser = result.user;
@@ -28,7 +27,6 @@ const Register = () => {
         setSuccessMessage("User Registration successfull!");
         setErrorMessage("");
         updateUserData(name, registeredUser, photo)
-        console.log(registeredUser);
         navigate("/")
       })
       .catch((error) => {

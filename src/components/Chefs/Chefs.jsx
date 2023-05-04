@@ -5,7 +5,6 @@ import { Row } from 'react-bootstrap';
 
 const Chefs = () => {
     const chefs = useLoaderData()
-    console.log(chefs);
     return (
         <div className='mt-5'>
             <div className='text-center my-4'>

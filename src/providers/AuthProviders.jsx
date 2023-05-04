@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -51,6 +52,13 @@ const AuthProviders = ({ children }) => {
     setLoading(true)
     return signInWithPopup(auth, githubProvider)
   }
+
+  const passwordReset = (email)=>{
+    setLoading(true)
+    return sendPasswordResetEmail(auth,email)
+  }
+
+  
   
 
  
@@ -71,6 +79,7 @@ const AuthProviders = ({ children }) => {
     logIn,
     googleSignIn,
     githubSighnIn,
+    passwordReset,
     logOut,
     loading,
   };

@@ -1,28 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
+import { toast } from "react-toastify";
 
 const Login = () => {
   // const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const { logIn, googleSignIn, githubSighnIn } = useContext(AuthContext);
+  const { logIn, googleSignIn, githubSighnIn,passwordReset } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const emailRef = useRef()
 
   const handleEmailPasswordLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     setErrorMessage("");
     logIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
         form.reset();
+        toast.success(`Welcome ${loggedUser.displayName}`)
         navigate(from);
       })
       .catch((error) => {
@@ -31,17 +32,29 @@ const Login = () => {
         } else if (error.message === "Firebase: Error (auth/wrong-password).") {
           setErrorMessage("The password that you've entered is incorrect!");
         }
-        console.log(error.message);
       });
   };
   //==========//
-  const handleResetPassword = (event) => {};
+  const handleResetPassword = (event) => {
+    const email = emailRef.current.value
+    if (!email) {
+      toast.error("Please provide E-mail")
+      return
+    }
+    passwordReset(email)
+    .then((result) => {
+      console.log('hello');
+      toast.success("Password reset email sent. Please Check your inbox/spam.")
+    })
+    .catch((error) => {
+      setErrorMessage(error.message);
+    });
+  };
   //===========//
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const googleLoggedUser = result.user;
-        console.log(googleLoggedUser);
         navigate(from);
       })
       .catch((error) => {
@@ -52,7 +65,6 @@ const Login = () => {
     githubSighnIn()
       .then((result) => {
         const githubLoggedUser = result.user;
-        console.log(githubLoggedUser);
         navigate(from);
       })
       .catch((error) => {
@@ -69,6 +81,7 @@ const Login = () => {
             type="email"
             placeholder="Enter email"
             name="email"
+            ref={emailRef}
             required
           />
         </Form.Group>
@@ -82,15 +95,7 @@ const Login = () => {
             required
           />
         </Form.Group>
-        <p>
-          <small>Forgot password? </small>
-          <button
-            onClick={handleResetPassword}
-            className="btn btn-link text-decoration-none"
-          >
-            Reset password
-          </button>
-        </p>
+
         {/* <p className="text-success">{successMessage}</p> */}
         <p className="text-danger">{errorMessage}</p>
         <div className="text-center my-3">
@@ -130,6 +135,15 @@ const Login = () => {
           <Link className="text-decoration-none" to={"/register"}>
             <small>Sign up or Register</small>
           </Link>
+        </p>
+        <p>
+          <small>Forgot password? </small>
+          <button
+            onClick={handleResetPassword}
+            className="btn btn-link text-decoration-none"
+          >
+            Reset password
+          </button>
         </p>
       </div>
     </div>

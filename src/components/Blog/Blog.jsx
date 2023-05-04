@@ -1,11 +1,19 @@
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import jsPDF from "jspdf";
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
-
+import PDFFile from "../PDFFile/PDFFile";
 const Blog = () => {
-    
+    const doc = new jsPDF();
+    doc.text("Hello world!", 10, 10);
   return (
     <div className="container">
       <h1 className="text-center fw-bold my-4">Blog</h1>
+      <div className="my-4 text-center">
+      <PDFDownloadLink document={<PDFFile />} filename="FORM">
+      <button type="button" class="btn btn-info">Download PDF</button>
+      </PDFDownloadLink>
+      </div>
       <div>
         <Card className="bg-light shadow border-0 text-center my-4">
           <Card.Body>

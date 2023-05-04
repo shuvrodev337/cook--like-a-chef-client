@@ -5,9 +5,7 @@ import { FaThumbsUp } from 'react-icons/fa';
 import SingleChefRecipe from '../SingleChefRecipe/SingleChefRecipe';
 const ChefRecipes = () => {
     const selectedChef = useLoaderData();
-    console.log(selectedChef);
     const {name,bio,picture,experience, numberof_recipes,likes, recipes} = selectedChef
-    console.log(recipes);
     return (
         <>
         <div className="banner mt-5">

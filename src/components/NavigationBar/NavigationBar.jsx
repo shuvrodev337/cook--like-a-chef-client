@@ -3,13 +3,12 @@ import { Button, Container, Image, Nav, NavDropdown, Navbar } from "react-bootst
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Tooltip } from 'react-tooltip'
+import { toast } from "react-toastify";
 const NavigationBar = () => {
   const {user,logOut} = useContext(AuthContext)
-  // console.log(user.photoURL);
   const handleLogOut = () =>{
     logOut()
-    alert("Log Out successfull")
-    // toast here
+    toast.success("Log Out successfull")
   }
   return (
    
@@ -19,9 +18,7 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto me-3">
-{/*             
-            <Link className="text-white me-2  fs-5 fw-semibold  text-decoration-none" to={"/"}>Home</Link>
-            <Link className="text-white  fs-5 fw-semibold  text-decoration-none" to={"/blog"}>Blog</Link> */}
+
             <NavLink
               to="/"
               aria-label="Home"

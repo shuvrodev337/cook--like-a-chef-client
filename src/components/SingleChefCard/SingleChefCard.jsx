@@ -4,8 +4,7 @@ import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
 const SingleChefCard = ({ chef }) => {
   const { id, name, picture, experience, likes } = chef;
-  console.log(id);
-  // const id = 2
+  
   return (
     <Col>
       <Card className="bg-light shadow border-0 text-center">
