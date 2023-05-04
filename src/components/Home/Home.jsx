@@ -1,13 +1,14 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Chefs from '../Chefs/Chefs';
+import AwardedRecipes from '../AwardedRecipes/AwardedRecipes';
 
 const Home = () => {
     return (
         <div>
-            {/* <h1 className='text-center  fst-italic fw-bold my-4 text-danger'>Cook like a Chef</h1> */}
             <Banner></Banner>
             <Chefs></Chefs>
+            <AwardedRecipes></AwardedRecipes>
         </div>
     );
 };
