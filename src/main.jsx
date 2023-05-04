@@ -16,10 +16,12 @@ import Blog from './components/Blog/Blog.jsx';
 import AuthProviders from './providers/AuthProviders.jsx';
 import PrivateRoute from './components/routes/PrivateRoute.jsx';
 import ChefRecipes from './components/ChefRecipes/ChefRecipes.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:"/",

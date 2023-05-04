@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Button, Container, Image, Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Tooltip } from 'react-tooltip'
 const NavigationBar = () => {
@@ -19,10 +19,25 @@ const NavigationBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto me-3">
-            
+{/*             
             <Link className="text-white me-2  fs-5 fw-semibold  text-decoration-none" to={"/"}>Home</Link>
-            <Link className="text-white  fs-5 fw-semibold  text-decoration-none" to={"/blog"}>Blog</Link>
-
+            <Link className="text-white  fs-5 fw-semibold  text-decoration-none" to={"/blog"}>Blog</Link> */}
+            <NavLink
+              to="/"
+              aria-label="Home"
+              title="Home"
+              className={({ isActive }) => (isActive ? "btn btn-primary me-2" : "btn btn-light me-2")}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/blog"
+              aria-label="Blog"
+              title="Blog"
+              className={({ isActive }) => (isActive ? "btn btn-primary me-2" : "btn btn-light me-2")}
+            >
+              Blog
+            </NavLink>
             
           </Nav>
           <Nav>
