@@ -14,8 +14,8 @@ import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import Blog from './components/Blog/Blog.jsx';
 import AuthProviders from './providers/AuthProviders.jsx';
-import Recipes from './components/Recipes/Recipes.jsx';
 import PrivateRoute from './components/routes/PrivateRoute.jsx';
+import ChefRecipes from './components/ChefRecipes/ChefRecipes.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/chef/:chefID",
-        element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
+        element: <PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
         loader:({params})=>fetch(`https://cook-like-a-chef-server-shuvrodev337.vercel.app/chefs/${params.chefID}`)
       }
     ]
