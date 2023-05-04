@@ -8,7 +8,6 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    // return <progress  className='mx-auto' className="progress progress-accent w-56" value="100" max="100"></progress>
     return <Spinner className="text-center" animation="border" size="lg" variant="danger" />
     
   }

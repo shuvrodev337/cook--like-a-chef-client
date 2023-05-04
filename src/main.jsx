@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home></Home>,
-        loader: ()=>fetch('http://localhost:3000/chefs')
+        loader: ()=>fetch('https://cook-like-a-chef-server-shuvrodev337.vercel.app/chefs')
       },
       {
         path:"/blog",
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path:"/chef/:chefID",
         element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:3000/chefs/${params.chefID}`)
+        loader:({params})=>fetch(`https://cook-like-a-chef-server-shuvrodev337.vercel.app/chefs/${params.chefID}`)
       }
     ]
   },
