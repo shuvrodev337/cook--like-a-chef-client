@@ -1,8 +1,7 @@
 import React from 'react';
 import { Card, Col, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
-import { FaBeer, FaThumbsUp } from 'react-icons/fa';
-import SingleChefCard from '../SingleChefCard/SingleChefCard';
+import { FaThumbsUp } from 'react-icons/fa';
 import SingleChefRecipe from '../SingleChefRecipe/SingleChefRecipe';
 const ChefRecipes = () => {
     const selectedChef = useLoaderData();
