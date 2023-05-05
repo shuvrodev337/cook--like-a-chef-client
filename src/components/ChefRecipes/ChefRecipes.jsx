@@ -3,7 +3,6 @@ import { Card, Col, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import { FaThumbsUp } from "react-icons/fa";
 import SingleChefRecipe from "../SingleChefRecipe/SingleChefRecipe";
-import LazyLoad from "react-lazy-load";
 const ChefRecipes = () => {
   const selectedChef = useLoaderData();
   const { name, bio, picture, experience, numberof_recipes, likes, recipes } =

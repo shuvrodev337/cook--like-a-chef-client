@@ -18,7 +18,7 @@ const Register = () => {
     const password = event.target.password.value;
     const photo = event.target.photoURL.value
     if (password.length < 6) {
-      setErrorMessage("password is too short, atleast 6 charecters");
+      setErrorMessage("password is too short, must be atleast 6 charecters!!");
       return;
     }
     createUser(email, password)

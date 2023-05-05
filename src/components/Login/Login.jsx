@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { toast } from "react-toastify";
 
 const Login = () => {
+  const [show,setShow] = useState(false)
   const [errorMessage, setErrorMessage] = useState("");
   const { logIn, googleSignIn, githubSighnIn,passwordReset } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -118,12 +119,17 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="password">
           <Form.Label className="text-primary">Password</Form.Label>
           <Form.Control
-            type="password"
+          
+            type={show ? "text" : "password"}
             placeholder="Enter Password"
             name="password"
             required
           />
         </Form.Group>
+        <Button onClick={()=>setShow(!show)} variant="secondary" size="sm">
+          
+          {show?"Hide Password":"See Password"}
+        </Button>
 
         <p className="text-danger">{errorMessage}</p>
         <div className="text-center my-3">

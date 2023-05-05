@@ -72,7 +72,7 @@ const TenBestRecipes = () => {
               <Card.Body>
                 <Card.Title className="fw-bolder">Pasta Carbonara</Card.Title>
                 <Card.Text className="fw-semibold">
-                  This simple Roman pasta dish derives its name from 'carbone'
+                  This simple Italian pasta dish derives its name from 'carbone'
                   meaning coal. It was a pasta popular with the coal miners. The
                   original recipe calls for guanciale, which is pig's cheek, but
                   since its not easily available, the chef has used bacon

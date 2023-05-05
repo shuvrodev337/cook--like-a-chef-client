@@ -10,7 +10,7 @@ const Banner = () => {
           <span className="text-white">Welcome To </span> <br />
           <span className="text-danger">Cook Like a Chef</span>
         </h1>
-        <p  className="mt-4 p-4 banner-description">
+        <p className="mt-4 p-4 banner-description">
           Discover the rich culinary heritage of Italy with our collection of
           authentic recipes, cooking tips, and food stories. From classic pasta
           dishes to regional specialties, our website is your ultimate source

@@ -52,7 +52,6 @@ const NavigationBar = () => {
             <Image data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} className="me-3" src={user?.photoURL} style={{width:"36px",height:"36px"}} roundedCircle />
             <Button onClick={handleLogOut} className="text-white fw-semibold" variant="warning">Log Out</Button>{' '}
             </> :
-            // <Link to={"/login"}><Button className="text-white fw-semibold" variant="danger">Login</Button>{' '}</Link>
             <NavLink
               to="/login"
               aria-label="Login"

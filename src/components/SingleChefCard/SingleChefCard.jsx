@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import LazyLoad from "react-lazy-load";
 import { Link } from "react-router-dom";
+import { FaThumbsUp } from "react-icons/fa";
+
 const SingleChefCard = ({ chef }) => {
   const { id, name, picture, experience, likes } = chef;
   
@@ -14,11 +16,11 @@ const SingleChefCard = ({ chef }) => {
           </LazyLoad>
         </div>
         <Card.Body>
-          <Card.Title className="fw-">{name}</Card.Title>
-          <Card.Text className="fw-">
+          <Card.Title>{name}</Card.Title>
+          <Card.Text>
             {experience} years experience.
           </Card.Text>
-          <Card.Text className="fw-">{likes} Likes.</Card.Text>
+          <Card.Text>{likes} Likes.<FaThumbsUp className="pb-1"></FaThumbsUp></Card.Text>
           <Link to={`/chef/${id}`}>
             <Button variant="danger">See Recipes</Button>{" "}
           </Link>

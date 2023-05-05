@@ -15,7 +15,7 @@ const AwardedRecipes = () => {
     <div className="container my-5">
       <div className="section-heading">
       <h1 className="section-title text-center ">
-        Here are the our most Awarded Recipes!
+        Here are our most awarded Italian Recipes!
       </h1>
       </div>
       <Carousel activeIndex={index} onSelect={handleSelect}>
