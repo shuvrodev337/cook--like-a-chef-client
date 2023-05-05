@@ -3,7 +3,10 @@ import { Card, Col, Row } from 'react-bootstrap';
 
 const TenBestRecipes = () => {
     return (<div className='container'>
-    <h1 className='text-center fw-bold my-4'>These are the Top 10 Italian Recipes you Can also explore.</h1>
+      <div className='section-heading'>
+    <h1 className='text-center fw-bold section-title'>These are the Top 10 Italian Recipes you Can also explore.</h1>
+
+      </div>
         <div>
             <Row  xs={1} md={2} lg={2} className="g-4 mt-4">
 

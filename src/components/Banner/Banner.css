@@ -1,7 +1,7 @@
 .banner{
     width:100%;
     height: 100vh;
-    background-image: url('../../assets/banner3.avif');
+    background-image: url('../../assets/bannerbg4.jpg');
     object-fit: cover;
     background-size: cover;
     background-position: center;
@@ -9,3 +9,26 @@
     color: white;
     backdrop-filter: blur(10%);
 }
+
+.banner-title{
+    font-family:"Playfair Display";
+    font-size:90px;
+    font-weight: 700;
+}
+.banner-description{
+    font-family:"Playfair Display";
+    font-weight: 400;
+}
+.banner-heading{
+    margin: 100px auto ;
+
+}
+.section-heading{
+    margin: 200px auto 100px;
+}
+.section-title{
+    font-family:"Playfair Display";
+    font-size:45px;
+    font-weight: 700;
+}
+/*  */

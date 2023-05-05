@@ -14,11 +14,11 @@ const SingleChefCard = ({ chef }) => {
           </LazyLoad>
         </div>
         <Card.Body>
-          <Card.Title className="fw-bolder">{name}</Card.Title>
-          <Card.Text className="fw-semibold">
+          <Card.Title className="fw-">{name}</Card.Title>
+          <Card.Text className="fw-">
             {experience} years experience.
           </Card.Text>
-          <Card.Text className="fw-semibold">{likes} Likes.</Card.Text>
+          <Card.Text className="fw-">{likes} Likes.</Card.Text>
           <Link to={`/chef/${id}`}>
             <Button variant="danger">See Recipes</Button>{" "}
           </Link>

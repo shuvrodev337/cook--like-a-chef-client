@@ -12,7 +12,7 @@ const NavigationBar = () => {
   }
   return (
    
-    <Navbar className="container mb-3 rounded" collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar className="container mb-2 rounded" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Link className="fs-3 fw-bolder text-decoration-none"><span className="text-white">Cook</span><span className="text-danger">Like-a-</span><span className="text-white">Chef</span></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
