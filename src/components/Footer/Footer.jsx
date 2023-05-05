@@ -12,6 +12,7 @@ const Footer = () => {
                 <Link className='mx-2' to={"https://twitter.com/"}><FaTwitter></FaTwitter></Link>
                 <Link to={"https://www.instagram.com/"}><FaInstagram></FaInstagram></Link>
                 </div>
+                
             <p ><small>Copyright &#169; 2023 CookLike-a-Chef. All rights reserved.</small></p>
         </div>
         </footer>

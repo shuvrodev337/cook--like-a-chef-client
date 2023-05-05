@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
 const Register = () => {
   const navigate = useNavigate()
   const { createUser } = useContext(AuthContext);
@@ -25,6 +26,14 @@ const Register = () => {
         const registeredUser = result.user;
         event.target.reset();
         setSuccessMessage("User Registration successfull!");
+        toast.success(`Registration success!!`, {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+        });
         setErrorMessage("");
         updateUserData(name, registeredUser, photo)
         navigate("/")
@@ -43,7 +52,7 @@ const Register = () => {
           photoURL: photo,
         })
         .then(() => {
-          console.log("User Name And photo url Updated");
+          
         })
         .catch((error) => {
           setErrorMessage("Name and photo URL Update Error " + error.message);

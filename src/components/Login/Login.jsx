@@ -5,7 +5,6 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  // const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const { logIn, googleSignIn, githubSighnIn,passwordReset } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -23,7 +22,14 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         form.reset();
-        toast.success(`Welcome ${loggedUser.displayName}`)
+        toast.success(`Login success!! Welcome ${loggedUser.displayName}.`, {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+        });
         navigate(from);
       })
       .catch((error) => {
@@ -43,8 +49,15 @@ const Login = () => {
     }
     passwordReset(email)
     .then((result) => {
-      console.log('hello');
-      toast.success("Password reset email sent. Please Check your inbox/spam.")
+      
+      toast.success("Password reset email sent. Please Check your inbox/spam.", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: false,
+      });
     })
     .catch((error) => {
       setErrorMessage(error.message);
@@ -55,6 +68,14 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const googleLoggedUser = result.user;
+        toast.success(`Login success!! Welcome ${googleLoggedUser.displayName}.`, {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+        });
         navigate(from);
       })
       .catch((error) => {
@@ -65,6 +86,14 @@ const Login = () => {
     githubSighnIn()
       .then((result) => {
         const githubLoggedUser = result.user;
+        toast.success(`Login success!! Welcome ${githubLoggedUser.displayName}.`, {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: false,
+        });
         navigate(from);
       })
       .catch((error) => {
@@ -96,7 +125,6 @@ const Login = () => {
           />
         </Form.Group>
 
-        {/* <p className="text-success">{successMessage}</p> */}
         <p className="text-danger">{errorMessage}</p>
         <div className="text-center my-3">
           <Button

@@ -20,9 +20,9 @@ const SingleChefRecipe = ({ recipe }) => {
           <Card.Text className="my-2 fw-bolder fs-3">Ingredients:</Card.Text>
             
           
-          <ListGroup className="my-2 ">
+          <ListGroup className="my-2 w-50 mx-auto">
             {
-            ingredients.map((ingredient,index) => <ListGroupItem key={index} className=" text-secondary">{ingredient}</ListGroupItem>)
+            ingredients.map((ingredient, index) => <ListGroupItem key={index} className=" text-secondary">{ingredient}</ListGroupItem>)
             }
           </ListGroup>
         <Card.Text className="my-2 fw-semibold fs-4">Cooking Method:</Card.Text>

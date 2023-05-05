@@ -7,8 +7,8 @@ const Banner = () => {
     <div className="banner p-4 text-center">
       <div className="banner-heading container">
         <h1  className=" fst-italic banner-title ">
-          Welcome To <span className="text-white">Cook Like a </span>
-          <span className="text-danger">Chef</span>
+          <span className="text-white">Welcome To </span> <br />
+          <span className="text-danger">Cook Like a Chef</span>
         </h1>
         <p  className="mt-4 p-4 banner-description">
           Discover the rich culinary heritage of Italy with our collection of
